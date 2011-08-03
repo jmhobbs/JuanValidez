@@ -2,8 +2,8 @@ VERSION=0.0.1
 SRC=src
 YUI=/opt/YUI/build/yuicompressor-2.4.6.jar
 
-BASIC=$(SRC)/juan-validez-core.js $(SRC)/juan-validez-rules-basic.js
-FULL=$(SRC)/juan-validez-core.js $(SRC)/juan-validez-rules-basic.js
+BASIC=$(SRC)/core.js $(SRC)/rules/basic.js
+FULL=$(SRC)/core.js $(SRC)/rules/basic.js $(SRC)/rules/lol.js
 
 all: coremin fullmin node
 

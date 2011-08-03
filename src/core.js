@@ -1,14 +1,25 @@
 var JuanValidez = {
 	
-	validators: {},
+	_validators: {},
+
+	validators: function () {
+		var key,
+		    keys = [];
+
+		for( key in this._validators ) {
+			keys.push( key );
+		}
+
+		return keys;
+	},
 
 	addValidator: function ( name, fn ) {
-		this.validators[name] = fn;
+		this._validators[name] = fn;
 	},
 
 	removeValidator: function ( validator ) {
-		if( this.validators[validator] ) {
-			delete this.validators[validator];
+		if( this._validators[validator] ) {
+			delete this._validators[validator];
 		}
 	},
 
@@ -16,8 +27,8 @@ var JuanValidez = {
 		// args is optional
 		args = ( "undefined" == typeof( args ) ) ? [] : args; 
 		try {
-			if( ! this.validators[validator] ) { throw new TypeError( "No such validator: " + validator ); }
-			return this.validators[validator].apply( value, args );
+			if( ! this._validators[validator] ) { throw new TypeError( "No such validator: " + validator ); }
+			return this._validators[validator].apply( value, args );
 		}
 		catch ( error ) {
 			if( window.console && window.console.log ) { console.log( error ); }
