@@ -1,8 +1,16 @@
+/*!
+	JuanValidez Library v0.0.1
+	https://github.com/jmhobbs/JuanValidez
+
+	Copyright 2011, John Hobbs
+	Licensed under the MIT license.
+	https://github.com/jmhobbs/JuanValidez/blob/master/LICENSE
+*/
 var JuanValidez = {
 	
 	_validators: {},
 
-	/*!
+	/*
 		Get the names of all currently loaded validators.
 
 		\returns Array
@@ -18,7 +26,7 @@ var JuanValidez = {
 		return keys;
 	},
 
-	/*!
+	/*
 		Register a validator.
 
 		\param name Name of the validator. Be unique but concise.
@@ -61,7 +69,7 @@ var JuanValidez = {
 		}
 	},
 
-	/*!
+	/*
 		Validate a value given a JuanValidez formatted string.
 
 		Example:
