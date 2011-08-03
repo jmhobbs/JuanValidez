@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<!--// Normally you would not need to include all of these, you would just use a build //-->
+		<script src="../src/juan-validez-core.js"></script>
+		<script src="../src/juan-validez-rules-basic.js"></script>
+		<script src="../src/juan-validez-jquery.js"></script>
+		<script>
+			$( function () {
+				$( '#validate' ).click( function () { return $( 'input' ).validate(); } );
+			} );
+		</script>
+		<style>
+			label { display: block; margin: 10px 0; }
+			input { display: block; }
+			input.invalid { border-color: #F00; }
+		</style>
+	</head>
+	<body>
+
+		<label>
+			Name
+			<input type="text" data-validates="required" />
+		</label>
+
+		<label>
+			Not Validated
+			<input type="text" />
+		</label>
+
+		<label>
+			Password
+			<input type="text" data-validates="required length:6" id="password" />
+		</label>
+
+		<button id="validate">Validate</button>
+
+	</body>
+</html>
