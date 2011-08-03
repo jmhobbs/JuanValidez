@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<!--// Normally you would not need to include all of these, you would just use a build //-->
+		<script src="../src/juan-validez-core.js"></script>
+		<script src="../src/juan-validez-rules-basic.js"></script>
+		<style>
+			label { display: block; margin: 10px 0; }
+			input { display: block; }
+		</style>
+	</head>
+	<body>
+
+		<label>
+			Name
+			<input type="text" id="name" />
+		</label>
+
+		<label>
+			Password
+			<input type="text" id="password" />
+		</label>
+
+		<button id="validate">Validate</button>
+
+		<script>
+
+			<!--// This is a sub-optimal implementation, but it shows we aren't dependent on jQuery, or even the DOM actually. //-->
+
+			document.getElementById( 'validate' ).onclick = function () {
+				var name = document.getElementById( 'name' ),
+				    pass = document.getElementById( 'password' ),
+						failures;
+
+				failures = JuanValidez.validate( name.value, 'required' );
+
+				if( failures.length > 0 ) {
+					alert( 'Name is required!' );
+				}
+
+				failures = JuanValidez.validate( pass.value, 'required length:6' );
+
+				for( i in failures ) {
+					switch( failures[i] ) {
+						case 'required':
+							alert( 'Password is required!' );
+							break;
+						case 'length':
+							alert( 'Password must be longer than six characters!' );
+							break;
+						default:
+							console.log( "Unhandled: " + failures[i] );
+							break;
+					}
+				}
+
+			};
+		</script>
+	</body>
+</html>

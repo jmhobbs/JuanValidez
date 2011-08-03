@@ -27,7 +27,7 @@
 
 				options.before.call( $el );
 
-				failures = JuanValidez.validate( $el.data( 'validates' ), $el.val() );
+				failures = JuanValidez.validate( $el.val(), $el.data( 'validates' ) );
 
 				if( failures.length > 0 ) {
 					valid = false;

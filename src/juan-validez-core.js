@@ -25,7 +25,7 @@ var JuanValidez = {
 		}
 	},
 
-	validate: function ( validators, value ) {
+	validate: function ( value, validators ) {
 	
 		// If there are no validation rules, it's valid.
 		if( 
