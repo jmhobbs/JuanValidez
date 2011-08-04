@@ -83,8 +83,8 @@ var JuanValidez = {
 	
 		// If there are no validation rules, it's valid.
 		if( 
-			'undefined' == typeof( validators ) || 
-			'' == validators.replace( /^\s*(\S*)\s*$/, '$1' ) 
+			'undefined' == typeof validators || 
+			'' === validators.replace( /^\s*(\S*)\s*$/, '$1' ) 
 		) { return []; }
 
 		var vds      = validators.split( ' ' ),
