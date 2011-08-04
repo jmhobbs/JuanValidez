@@ -19,7 +19,7 @@ var JuanValidez = {
 		var key,
 		    keys = [];
 
-		for( key in this._validators ) {
+		for( key in JuanValidez._validators ) {
 			keys.push( key );
 		}
 
@@ -33,7 +33,7 @@ var JuanValidez = {
 		\param fn The validation function.
 	*/
 	addValidator: function ( name, fn ) {
-		this._validators[name] = fn;
+		JuanValidez._validators[name] = fn;
 	},
 
 	/*
@@ -42,8 +42,9 @@ var JuanValidez = {
 		\param name The name of the validator to remove.
 	*/
 	removeValidator: function ( name ) {
-		if( this._validators[name] ) {
-			delete this._validators[name];
+		var JV = JuanValidez; // Help YUI out
+		if( JV._validators[name] ) {
+			delete JV._validators[name];
 		}
 	},
 
@@ -57,11 +58,12 @@ var JuanValidez = {
 		\returns boolean True if the value validated. False if not.
 	*/
 	runValidator: function ( validator, value, args ) {
+		var JV = JuanValidez; // Help YUI out
 		// args is optional
 		args = ( "undefined" === typeof args ) ? [] : args; 
 		try {
-			if( ! this._validators[validator] ) { throw new TypeError( "No such validator: " + validator ); }
-			return this._validators[validator].apply( value, args );
+			if( ! JV._validators[validator] ) { throw new TypeError( "No such validator: " + validator ); }
+			return JV._validators[validator].apply( value, args );
 		}
 		catch ( error ) {
 			if( window.console && window.console.log ) { console.log( error ); }
@@ -99,7 +101,7 @@ var JuanValidez = {
 			validator = args[0];
 			args = args.slice( 1 ).join( ':' ).split( ',' );
 
-			vd_valid = this.runValidator( validator, value, args );
+			vd_valid = JuanValidez.runValidator( validator, value, args );
 			if( ! vd_valid ) {
 				failed.push( validator );
 				valid = false;
