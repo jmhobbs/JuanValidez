@@ -6,7 +6,7 @@ JuanValidez.addValidator(
 JuanValidez.addValidator(
 	"length",
 	function ( min, max ) {
-		if( "undefined" == typeof( max ) ) {
+		if( "undefined" === typeof max ) {
 			return ( this.length >= min );
 		}
 		else {

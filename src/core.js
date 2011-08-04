@@ -58,7 +58,7 @@ var JuanValidez = {
 	*/
 	runValidator: function ( validator, value, args ) {
 		// args is optional
-		args = ( "undefined" == typeof( args ) ) ? [] : args; 
+		args = ( "undefined" === typeof args ) ? [] : args; 
 		try {
 			if( ! this._validators[validator] ) { throw new TypeError( "No such validator: " + validator ); }
 			return this._validators[validator].apply( value, args );
@@ -83,7 +83,7 @@ var JuanValidez = {
 	
 		// If there are no validation rules, it's valid.
 		if( 
-			'undefined' == typeof validators || 
+			'undefined' === typeof validators || 
 			'' === validators.replace( /^\s*(\S*)\s*$/, '$1' ) 
 		) { return []; }
 
