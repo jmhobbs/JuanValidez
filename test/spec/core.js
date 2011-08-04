@@ -30,4 +30,16 @@ describe( "JuanValidez Core", function () {
 
 	} );
 
+    describe( "when renaming a function that uses this", function () {
+
+        it( "should still have that validator", function () {
+
+            var renamed = JuanValidez.validators;
+            JuanValidez.addValidator( 'jasmine-add-test', function () { return true; } ); 
+            expect( renamed() ).toContain( 'jasmine-add-test' );
+
+        } );
+
+    } );
+
 } );
