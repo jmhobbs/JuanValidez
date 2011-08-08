@@ -64,4 +64,38 @@ describe( "JuanValidez Basic Rule", function () {
 
 	} );
 
+	describe( "integer", function () {
+
+		describe( "when given a positive integer", function () {
+			it( "should validate", function () {
+				expect( JuanValidez.runValidator( 'integer', '124' ) ).toBeTruthy();
+			} );
+		} );
+
+		describe( "when given a negative integer", function () {
+			it( "should not validate", function () {
+				expect( JuanValidez.runValidator( 'integer', '-124' ) ).toBeFalsy();
+			} );
+		} );
+
+		describe( "when given a non-numeric string", function () {
+			it( "should not validate", function () {
+				expect( JuanValidez.runValidator( 'integer', 'Hello There!' ) ).toBeFalsy();
+			} );
+		} );
+
+		describe( "when given an empty string", function () {
+			it( "should not validate", function () {
+				expect( JuanValidez.runValidator( 'integer', '' ) ).toBeFalsy();
+			} );
+		} );
+
+		describe( "when given a float value", function () {
+			it( "should not validate", function () {
+				expect( JuanValidez.runValidator( 'integer', '5.36' ) ).toBeFalsy();
+			} );
+		} );
+
+	} );
+
 });

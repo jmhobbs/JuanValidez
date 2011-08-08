@@ -14,3 +14,10 @@ JuanValidez.addValidator(
 		}
 	}
 );
+
+JuanValidez.addValidator( 
+	"integer",
+	function () {
+		return /^[0-9]+$/.test( this );
+	}
+);
