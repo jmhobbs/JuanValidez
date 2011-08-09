@@ -100,7 +100,7 @@ var JuanValidez = function () {
 				validator = args[0];
 				args = args.slice( 1 ).join( ':' ).split( ',' );
 
-				vd_valid = runValidator( validator, value, args );
+				vd_valid = this.runValidator( validator, value, args );
 				if( ! vd_valid ) {
 					failed.push( validator );
 					valid = false;

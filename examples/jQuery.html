@@ -33,6 +33,11 @@
 			<input type="text" data-validates="required length:6" id="password" />
 		</label>
 
+		<label>
+			Password Again
+			<input type="text" data-validates="required length:6" data-compares="match:#password" id="password-again" />
+		</label>
+
 		<button id="validate">Validate</button>
 
 	</body>

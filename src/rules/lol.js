@@ -9,6 +9,6 @@ JuanValidez.addValidator(
 		// "this" is the string to validate.
 		// Return true if it's valid, false if not.
 		// It's that simple.
-		return ( null != /\b(lol|rofl)/i.exec( this ) );
+		return /\b(lol|rofl)/i.test( this );
 	}
 );

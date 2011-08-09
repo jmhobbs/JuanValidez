@@ -35,3 +35,9 @@ JuanValidez.addValidator(
 	}
 );
 
+JuanValidez.addValidator(
+	"match",
+	function ( b ) {
+		return this == b;
+	}
+);

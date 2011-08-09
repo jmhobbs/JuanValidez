@@ -119,4 +119,28 @@ describe( "JuanValidez Basic Rules", function () {
 		} );
 
 	} );
+
+	describe( "match", function () {
+
+		describe( "when given a matching string", function () {
+			it( "should validate", function () {
+				expect( JuanValidez.runValidator( 'match', 'Hello', [ 'Hello' ] ) ).toBeTruthy();
+			} );
+		} );
+
+		describe( "when given a non-matching string", function () {
+			it( "should not validate", function () {
+				expect( JuanValidez.runValidator( 'match', 'Hello', [ 'hello' ] ) ).toBeFalsy();
+			} );
+		} );
+
+		describe( "when given a matching non-string", function () {
+			it( "should validate", function () {
+				expect( JuanValidez.runValidator( 'match', '541', [ 541 ] ) ).toBeTruthy();
+			} );
+		} );
+
+	} );
+
+
 });
