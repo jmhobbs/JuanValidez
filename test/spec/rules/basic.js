@@ -1,4 +1,4 @@
-describe( "JuanValidez Basic Rule", function () {
+describe( "JuanValidez Basic Rules", function () {
 
 	describe( "required", function () {
 
@@ -98,4 +98,25 @@ describe( "JuanValidez Basic Rule", function () {
 
 	} );
 
+	describe( "email", function () {
+
+		describe( "when given a simple email", function () {
+			it( "should validate", function () {
+				expect( JuanValidez.runValidator( 'email', 'test@example.com' ) ).toBeTruthy();
+			} );
+		} );
+
+		describe( "when given a complex email", function () {
+			it( "should validate", function () {
+				expect( JuanValidez.runValidator( 'email', 'test+another@example.co.uk' ) ).toBeTruthy();
+			} );
+		} );
+
+		describe( "when given a non-email string", function () {
+			it( "should not validate", function () {
+				expect( JuanValidez.runValidator( 'integer', 'Hello There!' ) ).toBeFalsy();
+			} );
+		} );
+
+	} );
 });
