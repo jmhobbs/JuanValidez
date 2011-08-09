@@ -1,5 +1,5 @@
 /*!
-	JuanValidez Library v0.0.1
+	JuanValidez Library v0.1.0
 	https://github.com/jmhobbs/JuanValidez
 
 	Copyright 2011, John Hobbs

@@ -1,4 +1,4 @@
-VERSION=0.0.1
+VERSION=0.1.0
 SRC=src
 YUI=/opt/YUI/build/yuicompressor-2.4.6.jar
 
