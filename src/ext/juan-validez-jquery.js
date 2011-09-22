@@ -27,6 +27,9 @@
 						compares,
 				    $el = $(this);
 
+				// Don't touch items with no data-validates attribute.
+				if( undefined === $el.data( 'validates' ) ) { return; }
+
 				options.before.call( $el );
 
 				// Special case for checkbox
